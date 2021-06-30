@@ -1,0 +1,147 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: Property REST API
+  description: 'RESTful API that uses HAPI.js'
+host: 'localhost:8000'
+basePath: /
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+tags:
+  - name: property
+    description: Property CRUD
+paths:
+  /property:
+    get:
+      summary: Get full list of properties
+      description: ''
+      parameters:
+        - name: state
+          in: query
+          type: string
+          description: Optional state filter (eg. TX)
+          required: false
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/property'
+        '500':
+          description: Server error
+    post:
+      summary: Create a property
+      description: ''
+      parameters:
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/property'
+      responses:
+        '200':
+          description: Modified ok
+        '400':
+          description: Validation error
+        '500':
+          description: Server error
+  /property/{id}:
+    patch:
+      summary: Patch a property
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: number
+          description: The id of the property to be updated
+        - name: body
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/propertyUpdatePayload'
+      responses:
+        '200':
+          description: Modified ok
+        '400':
+          description: Validation error
+        '404':
+          description: Property not found
+        '500':
+          description: Server error
+    delete:
+      summary: Delete a property
+      description: ''
+      parameters:
+        - name: id
+          in: path
+          required: true
+          type: number
+          description: The id of the property to be deleted
+      responses:
+        '200':
+          description: Modified ok
+        '404':
+          description: Property not found
+        '500':
+          description: Server error
+definitions:
+  propertyUpdatePayload:
+    type: object
+    properties:
+      name:
+        type: string
+        description: Property name
+      email:
+        type: string
+        description: Property email
+      address:
+        type: string
+        description: Property street address
+      city:
+        type: string
+        description: Property city
+      state:
+        type: string
+        description: Property state
+      zip:
+        type: number
+        description: Property zip code
+  property:
+    type: object
+    required:
+      - id
+      - name
+      - active
+      - address
+      - street
+      - city
+      - state
+      - zip
+    properties:
+      id:
+        type: number
+        description: Property id
+      name:
+        type: string
+        description: Property name
+      email:
+        type: string
+        description: Property email
+      address:
+        type: string
+        description: Property street address
+      city:
+        type: string
+        description: Property city
+      state:
+        type: string
+        description: Property state
+      zip:
+        type: number
+        description: Property zip code
