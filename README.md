@@ -1,7 +1,7 @@
 # RESTful HAPI API 
 
 ## Overview
-RESTful API that performs CRUD (Create, Read, Update, Delete) on a table of properties in a PostgresSQL database.
+RESTful API that performs CRUD (Create, Read, Update, Delete) on a table of properties in a PostgreSQL database.
 
 ## Setup
 
