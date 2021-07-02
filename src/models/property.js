@@ -4,7 +4,8 @@ class Property {
   static async create() {
     try {
       const result = await request.pg.client.query(
-          "INSERT INTO properties(id, name) VALUES (127, 'Milian Estates')");
+        "INSERT INTO properties(id, name) VALUES (127, 'Milian Estates')"
+      );
       return h.response(result.rows);
     } catch (err) {
       console.log(err);
@@ -30,7 +31,9 @@ class Property {
   }
   static async delete(id) {
     try {
-      const result = await request.pg.client.query(`DELETE from properties where id=${id}`);
+      const result = await request.pg.client.query(
+        `DELETE from properties where id=${id}`
+      );
       return h.response(result.rows);
     } catch (err) {
       console.log(err);

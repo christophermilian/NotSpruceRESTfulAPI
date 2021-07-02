@@ -1,6 +1,7 @@
 const Hapi = require("@hapi/hapi");
 
 const routes = require("./src/config/routes/property");
+
 require("env2")(".env");
 
 exports.start = async () => {
@@ -13,9 +14,9 @@ exports.start = async () => {
         failAction: async (request, h, err) => {
           console.error(err);
           throw err;
-        }
-      }
-    }
+        },
+      },
+    },
   });
 
   // Register plugins

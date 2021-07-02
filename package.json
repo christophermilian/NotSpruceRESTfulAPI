@@ -9,6 +9,7 @@
   },
   "keywords": [
     "HAPI",
+    "JOI",
     "RestAPI"
   ],
   "author": "Christopher Milian",
@@ -19,18 +20,11 @@
     "@hapi/hoek": "^9.2.0",
     "@hapi/inert": "^6.0.3",
     "@hapi/vision": "^6.1.0",
-    "body-parser": "^1.19.0",
     "env2": "^2.2.2",
-    "hapi": "^18.1.0",
-    "hapi-auth-bearer-token": "^8.0.0",
-    "hapi-cron": "^1.1.0",
-    "hapi-plugin-pg": "^1.1.2",
     "hapi-postgres-connection": "^7.0.0",
     "hapi-swagger": "^14.2.0",
     "joi": "^17.4.0",
-    "pg": "^8.6.0",
-    "pg-hstore": "^2.3.4",
-    "pjson": "^1.0.9"
+    "pg": "^8.6.0"
   },
   "devDependencies": {
     "@types/hapi__hapi": "^20.0.8",
